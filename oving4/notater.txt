@@ -1,0 +1,45 @@
+GDB = GNU Debugger
+
+Åpne GDB med TUI: gdb -tui
+eller Ctrl + X
+
+Tre typer BP:
+    Breakpoint stopper ved en spesifikk linje
+    Watchpoint stopper ved spes. var. endring
+    Catchpoint stopper hvis spes. hendelse skjer
+
+Prog break: "make break" og deretter "gdb -tui break" for å starte GDB med break
+
+break [funksjon] setter BP ved valgt funksjon
+break [kodelinje]
+
+run: kjører ved breakpoints som ble satt før.
+
+betingende BP: "break [hvor] if [logisk statement]
+f.eks.: break 14 if i>60 vil stoppe etter 60 iterasjoner
+
+"info break": info om hvilke breakpoints vi har
+
+"condition [nummer] [ny statement]" gir nye krav for gitt condition
+"continue": neste iterasjon av gjeldende løkke
+
+"disable [nummer]" skrur av BP ved gitt condition
+
+"delete [nummer]" sletter gitt BP
+
+"break [filnavn]:[hvor]" for å sette BP ved i en annen fil
+
+"tbreak [hvor]" setter en engangsbrake
+
+"keep" keyword betyr behold breakpoint etter bruk, "del" er motsatt
+
+"command [breakpointnr]" gir mulighet til å utføre en viss kommando ved gitt breakpointnr.
+NB: husk "end" etter kommando
+
+"make inspect" kan endre variabler. Bruk "gdb -tui inspect" etter den første kommandoen.
+
+"step" gå gjennom et steg
+"next" er som step over, og går "over" funksjonskall
+
+"until" hopper over løkker
+"finish" fullfører funksjonskall og stopper etter funksjonen

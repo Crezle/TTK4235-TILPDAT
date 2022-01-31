@@ -1,0 +1,42 @@
+goal: ingredients \n recipe
+
+main.o: main.c constants.h \n gcc -c main.c main.o
+
+VIKTIG: Èn tab fra start av linjene og steg i oppskrift
+
+".PHONY" brukes til å definere oppgaver som ikke skal generere filer
+NB: Er ikke nødvendig om det ikke er en fil med samme navn som oppgaven
+"clean" fjerner andre tidligere objektfiler
+"rm -f *.o" fjerner alle objektfiler 
+
+Punktum foran regel betyr at det er en hjelperegel
+
+".DEFAULT_GOAL" setter prioritet på bygging
+
+"-O0" og "-g3" er vanlige flagg for å kompilere main.c
+"-O0" reduserer kompileringstid, men også ytelse
+og "-g3" brukes for å generere debug informasjon
+
+boilerplate = mye repitisjon
+
+Kan definere flere filer i en variabel. F.eks.: OBJ = ost.o lefse.o saus.o protein.o \n taco : $(OBJ)...
+NB: Vanlig med store tegn
+
+Rekursive variabler er variabler med flere lag.
+NB: Kan ikke referere til seg selv + kompileringsflagg
+
+Enkle variabler settes med ":=" eller "::=". Sistnevnte finnes i POSIX
+
+"?=" for å definere variabler som allerede ikke finnes. "+=" = "append"
+For å legge resultat i en variabel fra shellscript brukes "!="
+"undefine" brukes for avdefinisering
+
+"define" og "endef" kan brukes på start og slutt for å definere multilinjevariabler.
+
+"\" på enden av en linje signaliserer at neste linje er en del av den første
+
+For "C" og "C++" antar make at det finnes en corr. C-fil til en O-fil.
+Antar også at flagget "-c" brukes for å generere obj-filer.
+
+Betingelser: "if" blir lik "ifeq" og "else if" blir lik "else ifeq".
+"ifneq" finnes også. "ifdef" tester om noe er definert, "ifndef" finnes også. 
